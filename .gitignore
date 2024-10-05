@@ -19,3 +19,14 @@
 
 # Go workspace file
 go.work
+ent/bank
+ent/bank_transfer
+ent/category
+ent/creditcard
+ent/enttest
+ent/hook
+ent/migrate
+ent/predicate
+ent/runtime
+ent/transaction
+ent/*.go
