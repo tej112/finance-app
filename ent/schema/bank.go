@@ -33,5 +33,6 @@ func (Bank) Edges() []ent.Edge {
 		edge.To("debits", Bank_Transfer.Type),
 		edge.To("credits", Bank_Transfer.Type),
 		edge.To("transactions", Transaction.Type),
+		edge.To("loans", Loan.Type),
 	}
 }

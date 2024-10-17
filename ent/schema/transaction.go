@@ -24,6 +24,7 @@ func (Transaction) Fields() []ent.Field {
 		field.UUID("bank_id", uuid.UUID{}),
 		field.UUID("category_id", uuid.UUID{}).Optional(),
 		field.UUID("transfer_id", uuid.UUID{}).Optional(),
+		field.UUID("loan_id", uuid.UUID{}).Optional(),
 		field.Enum("transaction_type").Values(utils.GetTransactionTypeValues()...),
 		field.Enum("transfer_type").Nillable().Values(utils.GetTransferTypeValues()...),
 		field.Time("transaction_date").Default(time.Now),
@@ -51,6 +52,11 @@ func (Transaction) Edges() []ent.Edge {
 			Ref("transactions").
 			Unique().
 			Field("transfer_id").
+			Annotations(entsql.OnDelete(entsql.SetNull)),
+		edge.From("loan", Loan.Type).
+			Ref("transactions").
+			Unique().
+			Field("loan_id").
 			Annotations(entsql.OnDelete(entsql.SetNull)),
 	}
 }

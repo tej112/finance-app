@@ -43,5 +43,6 @@ func (Bank_Transfer) Edges() []ent.Edge {
 			Field("to_bank_id").
 			Required(),
 		edge.To("transactions", Transaction.Type),
+		edge.To("loans", Loan.Type),
 	}
 }
