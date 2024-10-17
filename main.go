@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"finance/ent"
+	"finance/ent/loan"
 	"log"
 
 	"entgo.io/ent/dialect"
